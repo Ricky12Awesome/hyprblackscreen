@@ -21,12 +21,7 @@ close() {
 }
 
 case $1 in
-    open)
-        open
-    ;;
-    close)
-        close
-    ;;
-    *)
-        notify-send "Inccorect argument, valid: [open, close]"
+    open) open ;;
+    close) close ;;
+    *) notify-send "Inccorect argument, valid: [open, close]"
 esac
