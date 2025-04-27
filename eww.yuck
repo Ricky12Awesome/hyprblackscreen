@@ -1,0 +1,14 @@
+(defwindow blackscreen[id]
+  :geometry (geometry :x "0px"
+    :y "0px"
+    :width "100%"
+    :height "100%"
+  :anchor "top left")
+  :stacking "overlay"
+  :exclusive true
+  (button
+    :style "background: #000000; color: #000000; border: none;"
+    :onclick "eww close ${id}"
+  )
+)
+
