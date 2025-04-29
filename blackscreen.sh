@@ -2,7 +2,6 @@
 
 monitors=$(hyprctl monitors all -j | jq ".[].id")
 timeout="/tmp/hyprland_cursor_inactive_timeout"
-configDir="$HOME/.config/hypr/hyprblackscreen/"
 
 open() {
     hyprctl getoption "cursor:inactive_timeout" -j | jq ".float" > $timeout

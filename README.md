@@ -52,6 +52,7 @@ make sure you having hypridle running if not already, you can do that here https
 ## Quick Install (fresh install only)
 **WILL OVERWRITE EXISTING FILES**
 ```sh
+mkdir -p ~/.config/hypr/ && mkdir -p ~/.config/eww/
 curl https://raw.githubusercontent.com/Ricky12Awesome/hyprblackscreen/refs/heads/main/blackscreen.sh > ~/.config/hypr/blackscreen.sh
 curl https://raw.githubusercontent.com/Ricky12Awesome/hyprblackscreen/refs/heads/main/eww.yuck > ~/.config/eww/eww.yuck
 curl https://raw.githubusercontent.com/Ricky12Awesome/hyprblackscreen/refs/heads/main/hypridle.conf > ~/.config/hypr/hypridle.conf
