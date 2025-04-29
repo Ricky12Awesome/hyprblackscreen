@@ -10,23 +10,34 @@
 Make sure directories exist
 
 ```sh
-mkdir -p ~/.config/hypr/hyprblackscreen/
+mkdir -p ~/.config/hypr/ && mkdir -p ~/.config/eww/
 ```
 
-Download [`blackscreen.sh`](blackscreen.sh) to that directory
-
+Download [`blackscreen.sh`](blackscreen.sh)
 ```sh
-curl https://raw.githubusercontent.com/Ricky12Awesome/hyprblackscreen/refs/heads/main/blackscreen.sh > ~/.config/hypr/hyprblackscreen/blackscreen.sh
+curl https://raw.githubusercontent.com/Ricky12Awesome/hyprblackscreen/refs/heads/main/blackscreen.sh > ~/.config/hypr/blackscreen.sh
 ```
 
-Download [`eww.yuck`](eww.yuck) to that directory
-
-```sh
-curl https://raw.githubusercontent.com/Ricky12Awesome/hyprblackscreen/refs/heads/main/eww.yuck > ~/.config/hypr/hyprblackscreen/eww.yuck
+Add this to your eww.yuck file
+```lisp
+(defwindow blackscreen[id]
+  :geometry (geometry
+    ; Make sure to cover full screen and bars
+    :x "-200%"
+    :y "-200%"
+    :width "200%"
+    :height "200%"
+  :anchor "center")
+  :stacking "overlay"
+  :exclusive true
+  (button
+    :style "background: #000000; color: #000000; border: none;"
+    :onclick "eww close ${id}"
+  )
+)
 ```
 
-Add this to your hypridle.conf
-
+Add this to your hypridle.conf file
 ```conf
 listener {
     # Time in seconds to show the blackscreen
@@ -35,9 +46,13 @@ listener {
     on-resume = ~/.config/hypr/hyprblackscreen/blackscreen.sh close
 }
 ```
-or by doing this
-```sh
-curl https://raw.githubusercontent.com/Ricky12Awesome/hyprblackscreen/refs/heads/main/hypridle.conf >> ~/.config/hypr/hypridle.conf
-```
 
 make sure you having hypridle running if not already, you can do that here https://wiki.hyprland.org/Hypr-Ecosystem/hypridle/#configuration
+
+## Quick Install (fresh install only)
+**WILL OVERWRITE EXISTING FILES**
+```sh
+curl https://raw.githubusercontent.com/Ricky12Awesome/hyprblackscreen/refs/heads/main/blackscreen.sh > ~/.config/hypr/blackscreen.sh
+curl https://raw.githubusercontent.com/Ricky12Awesome/hyprblackscreen/refs/heads/main/eww.yuck > ~/.config/eww/eww.yuck
+curl https://raw.githubusercontent.com/Ricky12Awesome/hyprblackscreen/refs/heads/main/hypridle.conf > ~/.config/hypr/hypridle.conf
+```

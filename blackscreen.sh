@@ -9,7 +9,7 @@ open() {
     hyprctl keyword "cursor:inactive_timeout 1" -q
     
     for i in $monitors; do
-        eww --config "$configDir" open blackscreen --screen "$i" --id "m$i" --arg id="m$i"
+        eww open blackscreen --screen "$i" --id "m$i" --arg id="m$i"
     done
 }
 
@@ -17,7 +17,7 @@ close() {
     hyprctl keyword "cursor:inactive_timeout $(cat $timeout)" -q
     
     for i in $monitors; do
-        eww --config "$configDir" close "m$i"
+        eww close "m$i"
     done
 }
 
